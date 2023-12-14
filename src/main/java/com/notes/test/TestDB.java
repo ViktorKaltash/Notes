@@ -1,6 +1,6 @@
 package com.notes.test;
 
-import com.notes.DB.User;
+import com.notes.entity.User;
 
 import java.sql.*;
 

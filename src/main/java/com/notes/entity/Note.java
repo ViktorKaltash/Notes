@@ -11,4 +11,8 @@ public interface Note {
     public Color getColor();
     public String getTextLabel();
     public void setTextLabel(String Label);
+    public void setModifyDate(String date);
+    public String getModifyDate();
+    public String getCreationDate();
+    public void  setCreationDate(String date);
 }

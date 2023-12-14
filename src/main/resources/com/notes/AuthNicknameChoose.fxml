@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="265.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.notes.AuthNicknameChooseController">
+   <children>
+      <TextArea fx:id="nicknameTextArea" layoutX="33.0" layoutY="25.0" prefHeight="25.0" prefWidth="200.0" />
+      <Text fx:id="nickNameLabel" layoutX="106.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname" />
+      <Button fx:id="abortBTN" layoutX="144.0" layoutY="89.0" mnemonicParsing="false" onAction="#switchToSceneAuth" prefHeight="25.0" prefWidth="53.0" text="Abort" />
+      <Button fx:id="registerBTN" layoutX="61.0" layoutY="89.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="25.0" prefWidth="68.0" text="Register" />
+      <Text fx:id="nicknameAlertText" layoutX="19.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nickname must be more than 3 characters!" />
+   </children>
+</Pane>
