@@ -3,9 +3,9 @@
 Notes is a program that stores notes from registered users in
 MySQL database. The project is still under development and will be updated.
 
-## Libraries used
+## Used libraries and IDE
 This program used IDE Intellij IDEA, SceneBuilder, libraries such as
-JavaFX, MySQL-Connector/J, h2 database java, as well as assembly via Maven.
+JavaFX, MySQL-Connector/J, h2 database java. Programm assembled with Maven.
 
 Required libraries to use:
 
