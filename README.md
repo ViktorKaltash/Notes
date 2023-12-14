@@ -54,3 +54,4 @@ As you can see, our note has been added to our workspace and is now stored in th
 * New design for the program
 * Ability to be offline and not interact with the database in any way
 * Fix bugs
+* Saving password in hash style
