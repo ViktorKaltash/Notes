@@ -38,16 +38,18 @@ After these steps, our account is registered in the database
 
 Now log in to the system and go to our program. Let's create a new user note
 
-![image](https://github.com/ViktorKaltash/Notes/assets/150521039/f9f0fcf1-e10f-4a86-9c72-3cb9eba4932d)
+![image](https://github.com/ViktorKaltash/Notes/assets/150521039/a1479db8-6176-453b-9965-08a451ffb2ca)
 
-![image](https://github.com/ViktorKaltash/Notes/assets/150521039/0c93303f-ca93-4dbc-bc63-e8579c13ec38)
+
+![image](https://github.com/ViktorKaltash/Notes/assets/150521039/440740f2-1566-459c-8b22-f158ad103774)
+
 
 
 As you can see, our note has been added to our workspace and is now stored in the database. If we decide to re-login to the program on the same account, our note will be uploaded to us.
 
-![image](https://github.com/ViktorKaltash/Notes/assets/150521039/1c42da9b-0625-4a7a-8f00-bcb9aa790ad2)
+![image](https://github.com/ViktorKaltash/Notes/assets/150521039/ad56964b-a6cd-4afd-9b1b-3d953cfd2197)
 
-![image](https://github.com/ViktorKaltash/Notes/assets/150521039/9d25660d-9594-4002-a95f-17404fcac050)
+![image](https://github.com/ViktorKaltash/Notes/assets/150521039/11e9bc66-99a5-4aec-bd50-1752d2314fac)
 
 ## [Work In Progress]
 
