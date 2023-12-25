@@ -12,4 +12,13 @@ public class Utilities {
         System.out.println(tmp);
         return tmp;
     }
+
+    public static int[] getRGBA(final String rgb) {
+        final int[] ret = new int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            ret[i] = Integer.parseInt(rgb.substring(i * 2, i * 2 + 2), 16);
+        }
+        return ret;
+    }
 }

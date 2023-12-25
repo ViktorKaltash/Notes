@@ -11,6 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.notes.NotesController">
    <children>
+      <ColorPicker fx:id="colorPickerText" layoutX="782.0" layoutY="90.0" onAction="#updateNoteTextColor" />
       <ScrollPane fx:id="scrollPane" prefHeight="640.0" prefWidth="740.0" style="-fx-background-color: #311465;" />
       <Button fx:id="createNote" layoutX="764.0" layoutY="500.0" mnemonicParsing="false" onAction="#preOpenNote" prefHeight="25.0" prefWidth="164.0" text="Add new note">
          <effect>
@@ -22,7 +23,7 @@
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </Button>
-      <Pane fx:id="colorPreview" layoutX="781.0" layoutY="82.0" prefHeight="128.0" prefWidth="128.0" style="-fx-background-color: #222222;">
+      <Pane fx:id="colorPreview" layoutX="780.0" layoutY="130.0" prefHeight="128.0" prefWidth="128.0" style="-fx-background-color: #222222;">
          <effect>
             <DropShadow height="64.0" radius="31.5" width="64.0" />
          </effect>
@@ -32,26 +33,27 @@
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </Button>
-      <ColorPicker fx:id="colorPicker" editable="true" layoutX="782.0" layoutY="234.0">
+      <ColorPicker fx:id="colorPicker" editable="true" layoutX="780.0" layoutY="290.0" onAction="#updateNoteBackgroundColor">
          <effect>
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </ColorPicker>
-      <Text fx:id="symbolsText" fill="WHITE" layoutX="746.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Symbols :">
+      <Text fx:id="symbolsText" fill="WHITE" layoutX="746.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Symbols :">
          <effect>
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </Text>
-      <Text fx:id="dateOfCreationText" fill="WHITE" layoutX="746.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created:">
+      <Text fx:id="dateOfCreationText" fill="WHITE" layoutX="746.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created:">
          <effect>
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </Text>
-      <Text fx:id="dateOfModifyText" fill="WHITE" layoutX="746.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modified:">
+      <Text fx:id="dateOfModifyText" fill="WHITE" layoutX="746.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modified:">
          <effect>
             <DropShadow height="32.0" radius="15.5" width="32.0" />
          </effect>
       </Text>
       <TextField fx:id="noteNameField" layoutX="771.0" layoutY="34.0" />
+      <Text fx:id="TextColorLabelPrev" layoutX="818.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text color" />
    </children>
 </AnchorPane>

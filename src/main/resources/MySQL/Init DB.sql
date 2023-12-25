@@ -15,6 +15,7 @@ note_text text,
 note_label text not null,
 creation_date date not null,
 modify_date date not null,
+color varchar(6),
 
 constraint pk_note_id primary key (note_id),
 constraint fk_account_id foreign key  (account_id)

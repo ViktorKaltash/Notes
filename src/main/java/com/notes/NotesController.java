@@ -32,7 +32,7 @@ public class NotesController implements Initializable {
             super();
             this.note = note;
             this.setText(note.getTextLabel());
-            this.setStyle("-fx-background-color: #ff5733; -fx-text-fill: white;");
+            this.setStyle("-fx-background-color: #" + note.getColor()  + "; -fx-text-fill: #" + note.getTextColor() + ";");
             this.setOnAction(this::actionEvent);
         }
         public void actionEvent(ActionEvent actionEvent) {
@@ -66,14 +66,19 @@ public class NotesController implements Initializable {
     private ScrollPane scrollPane;
     //grid pane 720W 640H
     @FXML
-    private ColorPicker colorPicker;
+    private ColorPicker colorPicker, colorPickerText;
     @FXML
     private Button lookInside, addNote, changeNote, delNote;
     @FXML
     private Text symbolsText, dateOfModifyText, dateOfCreationText;
     @FXML
     private TextField noteNameField;
+    @FXML
+    private Pane colorPreview;
+    @FXML
     private GridPane gridPane;
+    @FXML
+    private Text TextColorLabelPrev;
     private File directory;
     private File[] files;
     public static NoteButton curBtn;
@@ -99,17 +104,26 @@ public class NotesController implements Initializable {
             receivedNotes = 0;
             System.exit(0);
         }
+        System.out.println(arrayList.toString());
 
         gridPane = new GridPane();
         gridPane.setGridLinesVisible(true);
 
         panes = new StackPane[4][4];
+
+        boolean inArrBounds;
         for (int i = 0; i < panes.length; i++) {
             for (int j = 0; j < panes[i].length; j++) {
                 panes[i][j] = new StackPane();
                 panes[i][j].setPrefSize(180, 160);
-                if (receivedNotes >= 0) {
-                    NoteButton noteButton = new NoteButton(arrayList.get(receivedNotes)) {
+                try {
+                    arrayList.get(4*j + i);
+                    inArrBounds = true;
+                } catch (IndexOutOfBoundsException e) {
+                    inArrBounds = false;
+                }
+                if (receivedNotes >= 0 && inArrBounds) {
+                    NoteButton noteButton = new NoteButton(arrayList.get(4*j+i)) {
                         @Override
                         public void actionEvent(ActionEvent actionEvent) {
                             super.actionEvent(actionEvent);
@@ -128,14 +142,14 @@ public class NotesController implements Initializable {
         scrollPane.setContent(gridPane);
     }
     private void initializeUser() {
-//        try {
-//            user = AccountDB.getUserByNickname("sourceborn");
-//            Application.user = user;
-//        } catch (SQLException e) {
-//            System.out.println("User not found!");
-//            System.exit(0);
-//        }
-        user = Application.user;
+        try {
+            user = AccountDB.getUserByNickname("sourceborn");
+            Application.user = user;
+        } catch (SQLException e) {
+            System.out.println("User not found!");
+            System.exit(0);
+        }
+//        user = Application.user;
     }
     private void initializeStaticParameters() {
         curBtn = null;
@@ -143,13 +157,15 @@ public class NotesController implements Initializable {
 
     /*///////////////////////////////////*/
     /*/////////////UTILITIES/////////////*/
+    /*///////////////////////////////////*/
     public void getInfoFromCurBtn() {
         noteNameField.setText(curBtn.getNoteLabel());
-        symbolsText.setText("Symbols: " + curBtn.getText().length() + "");
+        symbolsText.setText("Symbols: " + curBtn.getNoteText().length() + "");
         dateOfCreationText.setText("Created: " + curBtn.getCreationDate());
         dateOfModifyText.setText("Modified: " + curBtn.getNoteModifyDate() + "");
+        colorPreview.setStyle("-fx-background-color: #" + curBtn.note.getColor() + ";");
+        TextColorLabelPrev.setStyle("-fx-text-fill: #" + curBtn.note.getTextColor() + ";");
     }
-
     public void writeToFile(String fileName, String text) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter printWriter;
         String tmpPath = (new File("").getAbsoluteFile() + "\\src\\main\\resources\\Notes\\" + fileName + ".txt");
@@ -194,5 +210,28 @@ public class NotesController implements Initializable {
         }
         NotesDB.deleteNote(user.getId(), curBtn.note.getId());
         initializeGridPane();
+    }
+
+    public void updateNoteBackgroundColor() throws SQLException {
+        if (curBtn == null) {
+            return;
+        }
+        System.out.println("[Note: " + curBtn.getNoteLabel() + "]");
+        curBtn.setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2,8) + "; -fx-text-fill: #" + curBtn.note.getTextColor() + ";");
+        curBtn.note.setColor(colorPicker.getValue().toString().substring(2,8));
+        NotesDB.updateNote(user.getId(), curBtn.note);
+    }
+
+    public void updateNoteTextColor() throws SQLException {
+        if (curBtn == null) {
+            return;
+        }
+        System.out.println("[Note: " + curBtn.getNoteLabel() + "]");
+        curBtn.setStyle("-fx-background-color: #" + curBtn.note.getColor() + "; -fx-text-fill: #" + colorPickerText.getValue().toString().substring(2,8) + ";");
+        curBtn.note.setTextColor(colorPickerText.getValue().toString().substring(2,8));
+        NotesDB.updateNote(user.getId(), curBtn.note);
+    }
+    public void updateRows() {
+
     }
 }

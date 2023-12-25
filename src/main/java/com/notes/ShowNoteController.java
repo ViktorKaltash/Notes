@@ -3,6 +3,7 @@ package com.notes;
 import com.notes.DB.NotesDB;
 import com.notes.entity.Note;
 import com.notes.entity.NoteCasual;
+import com.notes.entity.Utilities;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,17 +12,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ShowNoteController implements Initializable {
@@ -30,7 +28,9 @@ public class ShowNoteController implements Initializable {
     private TextArea textArea, noteLabel;
     @FXML
     private Button saveBtn, cancelBtn;
-
+    @FXML
+    private ColorPicker colorPicker;
+    private String ChoosenColor;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -43,7 +43,7 @@ public class ShowNoteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        ChoosenColor = "ffffff";
     }
 
     public void initData(boolean isCreateNote, Note note) {
@@ -85,13 +85,21 @@ public class ShowNoteController implements Initializable {
         }
         note.setText(textArea.getText());
         note.setTextLabel(noteLabel.getText());
+        note.setColor(ChoosenColor);
+        note.setTextColor("000000");
         NotesDB.registerNewNote(Application.user.getId(), note);
     }
 
     public void updateNoteToDB() throws SQLException {
         note.setTextLabel(noteLabel.getText());
         note.setText(textArea.getText());
+        note.setColor(ChoosenColor);
         NotesDB.updateNote(Application.user.getId(), note);
+    }
+
+    public void chooseColor() {
+        ChoosenColor = colorPicker.getValue().toString().substring(2,8);
+        System.out.println(ChoosenColor);
     }
 
     public void back(ActionEvent event) throws IOException {

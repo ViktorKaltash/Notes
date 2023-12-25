@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class AuthController implements Initializable {
     private Stage stage;

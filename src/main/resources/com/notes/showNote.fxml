@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.notes.ShowNoteController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.notes.ShowNoteController">
    <children>
-      <Pane prefHeight="460.0" prefWidth="360.0" style="-fx-background-color: #333333;">
+      <Pane prefHeight="500.0" prefWidth="360.0" style="-fx-background-color: #333333;">
          <children>
-            <Button fx:id="saveBtn" layoutX="90.0" layoutY="414.0" mnemonicParsing="false" onAction="#saveData" prefHeight="32.0" prefWidth="90.0" text="Save" />
-            <TextArea fx:id="noteLabel" layoutX="74.0" layoutY="7.0" prefHeight="32.0" prefWidth="212.0" promptText="Note" wrapText="true" />
-            <Button fx:id="backBtn" layoutX="187.0" layoutY="414.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="90.0" text="Abort" />
+            <Button fx:id="saveBtn" layoutX="80.0" layoutY="454.0" mnemonicParsing="false" onAction="#saveData" prefHeight="32.0" prefWidth="90.0" text="Save" />
+            <TextArea fx:id="noteLabel" layoutX="74.0" layoutY="7.0" prefHeight="32.0" prefWidth="220.0" promptText="Note" wrapText="true" />
+            <Button fx:id="backBtn" layoutX="200.0" layoutY="454.0" mnemonicParsing="false" onAction="#back" prefHeight="32.0" prefWidth="90.0" text="Abort" />
+            <ColorPicker fx:id="colorPicker" layoutX="125.0" layoutY="412.0" onAction="#chooseColor" />
          </children>
       </Pane>
-      <TextArea fx:id="textArea" layoutX="20.0" layoutY="52.0" prefHeight="348.0" prefWidth="320.0" wrapText="true">
+      <TextArea fx:id="textArea" layoutX="20.0" layoutY="52.0" prefHeight="350.0" prefWidth="320.0" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>

@@ -7,8 +7,10 @@ public interface Note {
     public int getId();
     public String getText();
     public void setText(String text);
-    public void setColor(Color color);
-    public Color getColor();
+    public void setColor(String color);
+    public void setTextColor(String color);
+    public String getColor();
+    public String getTextColor();
     public String getTextLabel();
     public void setTextLabel(String Label);
     public void setModifyDate(String date);

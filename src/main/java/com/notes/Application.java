@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class Application extends javafx.application.Application {
     public static String PATH_AUTH = (new File("").getAbsolutePath()) + "\\src\\main\\resources\\com\\notes\\Auth.fxml";
-
     public static User user;
 
     @Override

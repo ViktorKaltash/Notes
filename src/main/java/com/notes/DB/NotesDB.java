@@ -71,9 +71,9 @@ public class NotesDB {
     public static void registerNewNote(int accountId, Note note) throws SQLException {
         System.out.println("[Command: Register note]");
         try {
-            statement.execute("Insert into " + TableName + " (note_id, account_id, note_text, note_label, creation_date, modify_date)\n" +
+            statement.execute("Insert into " + TableName + " (note_id, account_id, note_text, note_label, creation_date, modify_date, color, text_color)\n" +
                     "VALUES (null, " + accountId  + ", \"" + note.getText() + "\", \"" + note.getTextLabel() + "\", \"" +
-                    Utilities.getDate() + "\", \"" + Utilities.getDate() + "\");");
+                    Utilities.getDate() + "\", \"" + Utilities.getDate() + "\", \"" + note.getColor() + "\", \"" + note.getTextColor() + "\");");
             System.out.println("Note registered!");
         } catch (SQLException e) {
             System.out.println("Result: Error");
@@ -88,8 +88,10 @@ public class NotesDB {
             statement.execute("Update notes set " +
                     "note_text = \"" + note.getText() + "\", " +
                     "note_label = \"" + note.getTextLabel() + "\"," +
-                    "modify_date = '" + Utilities.getDate() +
-                    "' where note_id = " + note.getId() + " AND account_id = " + userId +";");
+                    "modify_date = '" + Utilities.getDate() + "', " +
+                    "color = '" + note.getColor() + "'," +
+                    "text_color = '" + note.getTextColor() + "'" +
+                    " where note_id = " + note.getId() + " AND account_id = " + userId +";");
             System.out.println("Note " + note.getId() + " updated!");
         } catch (SQLException e) {
             System.out.println("Result: Error");
