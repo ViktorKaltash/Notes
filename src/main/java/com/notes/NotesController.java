@@ -142,14 +142,14 @@ public class NotesController implements Initializable {
         scrollPane.setContent(gridPane);
     }
     private void initializeUser() {
-        try {
-            user = AccountDB.getUserByNickname("sourceborn");
-            Application.user = user;
-        } catch (SQLException e) {
-            System.out.println("User not found!");
-            System.exit(0);
-        }
-//        user = Application.user;
+//        try {
+//            user = AccountDB.getUserByNickname("sourceborn");
+//            Application.user = user;
+//        } catch (SQLException e) {
+//            System.out.println("User not found!");
+//            System.exit(0);
+//        }
+        user = Application.user;
     }
     private void initializeStaticParameters() {
         curBtn = null;
